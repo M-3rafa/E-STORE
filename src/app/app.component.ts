@@ -4,6 +4,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { LoadingScreenComponent } from './shared/components/loading-screen/loading-screen/loading-screen.component';
+import { NgxSpinnerComponent } from 'ngx-spinner';
 @Component({
   selector: 'app-root',
   imports: [
@@ -12,6 +13,7 @@ import { LoadingScreenComponent } from './shared/components/loading-screen/loadi
     RouterOutlet,
     FooterComponent,
     LoadingScreenComponent,
+    NgxSpinnerComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
