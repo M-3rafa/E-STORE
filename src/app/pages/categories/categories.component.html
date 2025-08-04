@@ -1,0 +1,13 @@
+<section class=" py-12">
+    <h2 class="text-center font-bold text-2xl underline"> All categories</h2>
+    <div class="container">
+        <div class="row  grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4  gap-3">
+            <div *ngFor="let category of categories"
+                class=" m-2 bg-white rounded shadow shadow-purple-500  hover:shadow-lg hover:shadow-purple-400 hover:scale-105 transition-all duration-300">
+                <img src="{{ category.image }}" alt="{{ category.name }}" class=" w-full h-[300px]  rounded">
+
+                <p class="text-center">{{ category.name }}</p>
+            </div>
+        </div>
+    </div>
+</section>

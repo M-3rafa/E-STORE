@@ -1,0 +1,12 @@
+/* Tailwind + Flowbite only */
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Toastr (basic style without bootstrap) */
+@import "ngx-toastr/toastr";

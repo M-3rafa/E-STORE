@@ -1,0 +1,108 @@
+<nav #Navbar class="bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out">
+    <div class="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a class="flex items-center space-x-2">
+            <span
+                class="text-3xl font-extrabold tracking-wide text-transparent bg-clip-text t bg-gradient-to-r from-blue-500 to-purple-500">
+                E STORE
+            </span>
+        </a>
+
+        <!-- Icons + Menu Button -->
+
+        <div class="flex items-center space-x-4 md:order-2">
+            @if(isLoggedIn()) {
+            <ul class="flex items-center space-x-4">
+                <li>
+                    <a routerLink="/cart" class="relative text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/wishlist" class="relative text-gray-600 hover:text-blue-600">
+                        <i class="fa-solid fa-heart text-xl"></i>
+                    </a>
+                </li>
+                <li>
+
+                    <a href="#" class="relative text-gray-600 hover:text-blue-600">
+                        <i class="fa-brands fa-linkedin text-xl"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="relative text-gray-600 hover:text-blue-600">
+                        <i class="fa-brands fa-github text-xl"></i>
+                    </a>
+                </li>
+                <li>
+
+                    <a routerLink="login" class="relative text-gray-600 hover:text-blue-600">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            }
+
+            @if( !isLoggedIn()) {
+            <ul class="flex items-center space-x-4">
+                <li>
+                    <a routerLink="login" class="text-gray-600 hover:text-blue-600">
+                        <i class="fa-solid fa-right-to-bracket text-xl"></i>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="register" class="text-gray-600 hover:text-blue-600">
+                        <i class="fa-solid fa-user-plus text-xl"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+
+            }
+
+            <!-- Mobile menu button -->
+            <button data-collapse-toggle="navbar-search" type="button"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 text-gray-600 hover:bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200"
+                aria-controls="navbar-search" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="hidden md:flex md:items-center md:space-x-8 md:order-1" id="navbar-search">
+            @if(isLoggedIn()) {
+            <ul class="flex items-center space-x-8">
+                <li>
+                    <a routerLink="home" routerLinkActive="text-blue-700 font-semibold underline"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        class="text-gray-700 hover:text-blue-600 transition duration-150">Home</a>
+                </li>
+                <li>
+                    <a routerLink="shope" routerLinkActive="text-blue-700 font-semibold underline"
+                        class="text-gray-700 hover:text-blue-600 transition duration-150">Products</a>
+                </li>
+                <li>
+                    <a routerLink="categories" routerLinkActive="text-blue-700 font-semibold underline"
+                        class="text-gray-700 hover:text-blue-600 transition duration-150">Category</a>
+                </li>
+
+                <li>
+                    <a routerLink="wishlist" routerLinkActive="text-blue-700 font-semibold underline"
+                        class="text-gray-700 hover:text-blue-600 transition duration-150">Wish List</a>
+                </li>
+                <li>
+                    <a routerLink="brands" routerLinkActive="text-blue-700 font-semibold underline" c
+                        lass="text-gray-700 hover:text-blue-600 transition duration-150">Brands</a>
+                </li>
+            </ul>
+            }
+        </div>
+
+    </div>
+</nav>

@@ -1,0 +1,94 @@
+<div class="flex items-center justify-center  bg-gray-100 px-4">
+    <div class="w-full max-w-3xl  bg-white p-8 rounded-xl shadow-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">
+            Create Your Account
+        </h2>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <!-- Username -->
+            <div class="mb-4">
+                <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Username" formControlName="userName" />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+                <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Email" formControlName="email" type="email" />
+                <div class="text-sm text-red-600 mt-1" *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+                    <div *ngIf="form.get('email')?.errors?.['required']">
+                        Email is required.
+                    </div>
+                    <div *ngIf="form.get('email')?.errors?.['email']">
+                        Invalid email format.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+                <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Password" formControlName="password" type="password" />
+                <div class="text-sm text-red-600 mt-1"
+                    *ngIf="form.get('password')?.touched && form.get('password')?.invalid">
+                    <div *ngIf="form.get('password')?.errors?.['required']">
+                        Password is required.
+                    </div>
+                    <div *ngIf="form.get('password')?.errors?.['pattern']">
+                        Must be 8+ characters with uppercase, number & special character.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-4">
+                <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Confirm Password" formControlName="confirmPassword" type="password" />
+                <div class="text-sm text-red-600 mt-1" *ngIf="form.get('confirmPassword')?.touched && passwordMismatch">
+                    Passwords do not match.
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-4">
+                <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Phone Number" formControlName="phoneNumber" type="tel" />
+                <div class="text-sm text-red-600 mt-1"
+                    *ngIf="form.get('phoneNumber')?.touched && form.get('phoneNumber')?.invalid">
+                    <div *ngIf="form.get('phoneNumber')?.errors?.['required']">
+                        Phone number is required.
+                    </div>
+                    <div *ngIf="form.get('phoneNumber')?.errors?.['pattern']">
+                        Invalid phone number format.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div *ngIf="passwordMismatch" class="text-sm text-red-600 mb-2">
+                Passwords do not match
+            </div>
+            <div *ngIf="errorMessage" class="text-sm text-red-600 mb-2">
+                {{ errorMessage }}
+            </div>
+            <div *ngIf="successMessage" class="text-sm text-green-600 mb-2">
+                {{ successMessage }}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+                class="w-full bg-indigo-600 text-white py-2 rounded-md font-semibold hover:bg-indigo-700 transition duration-300 disabled:opacity-50"
+                [disabled]="form.invalid">
+                Sign Up
+            </button>
+        </form>
+
+        <!-- Login Link -->
+        <div class="mt-4 text-center">
+            <small class="text-gray-600">
+                Already have an account?
+                <a routerLink="/login" class="text-indigo-600 hover:underline">Sign in</a>
+            </small>
+        </div>
+    </div>
+</div>
